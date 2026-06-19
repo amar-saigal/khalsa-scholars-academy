@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questions — Khalsa Scholars Academy</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#1B2D5B;font-family:'Helvetica Neue',Helvetica,sans-serif;min-height:100vh;padding:40px 20px}
+  .container{max-width:600px;margin:0 auto}
+  .header{text-align:center;margin-bottom:40px}
+  .khanda{font-size:40px;color:#C8921A;margin-bottom:12px}
+  h1{font-size:32px;color:#fff;font-weight:600;margin-bottom:8px;font-family:Georgia,serif}
+  h1 span{color:#C8921A}
+  .sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.6}
+  .rule{width:50px;height:2px;background:#C8921A;margin:20px auto}
+
+  .card{background:rgba(255,255,255,0.05);border:1px solid rgba(200,146,26,0.25);border-radius:12px;padding:36px;margin-bottom:24px}
+
+  .quick-facts{margin-bottom:24px}
+  .fact{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+  .fact:last-child{border-bottom:none}
+  .fact-dot{width:8px;height:8px;background:#C8921A;border-radius:50%;flex-shrink:0;margin-top:6px}
+  .fact-text{font-size:15px;color:rgba(255,255,255,0.78);line-height:1.5}
+  .fact-text strong{color:#C8921A;font-weight:500}
+
+  label{display:block;font-size:14px;color:#C8921A;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;margin-top:20px}
+  label:first-of-type{margin-top:0}
+  input,select,textarea{
+    width:100%;padding:14px 16px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:8px;color:#fff;font-size:16px;
+    font-family:'Helvetica Neue',sans-serif;
+    outline:none;transition:border-color 0.2s;
+  }
+  input:focus,select:focus,textarea:focus{border-color:#C8921A}
+  select option{background:#1B2D5B;color:#fff}
+  textarea{resize:vertical;min-height:100px}
+  ::placeholder{color:rgba(255,255,255,0.3)}
+
+  .btn{
+    width:100%;padding:16px;margin-top:24px;
+    background:#C8921A;border:none;border-radius:8px;
+    color:#1B2D5B;font-size:17px;font-weight:700;
+    letter-spacing:0.05em;cursor:pointer;
+    transition:opacity 0.2s,transform 0.1s;
+  }
+  .btn:hover{opacity:0.9}
+  .btn:active{transform:scale(0.99)}
+
+  .success{display:none;text-align:center;padding:40px 20px}
+  .success .big{font-size:48px;margin-bottom:16px}
+  .success h2{font-size:28px;color:#C8921A;margin-bottom:8px}
+  .success p{color:rgba(255,255,255,0.7);font-size:16px;line-height:1.6}
+
+  .footer{text-align:center;margin-top:32px;color:rgba(255,255,255,0.35);font-size:13px;line-height:1.8}
+  .footer a{color:#C8921A;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="khanda">☬</div>
+    <h1>Have <span>Questions?</span></h1>
+    <div class="rule"></div>
+    <p class="sub">We would love to hear from you.<br>Leave your details and Amarjot will reach out personally.</p>
+  </div>
+
+  <div class="card">
+    <div class="quick-facts">
+      <div class="fact"><div class="fact-dot"></div><div class="fact-text"><strong>Program:</strong> June 14 – August 30, 2026 · Every Sunday · San Jose Gurudwara</div></div>
+      <div class="fact"><div class="fact-dot"></div><div class="fact-text"><strong>Who:</strong> Grades 7–11 · Only 5 students per grade</div></div>
+      <div class="fact"><div class="fact-dot"></div><div class="fact-text"><strong>Selection Test:</strong> April 27 · Gurudwara Library</div></div>
+      <div class="fact"><div class="fact-dot"></div><div class="fact-text"><strong>Donation:</strong> Voluntary $150 — entirely for student prizes</div></div>
+      <div class="fact"><div class="fact-dot"></div><div class="fact-text">Visit <strong>sikhcollegeprep.us</strong> to register your child</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <form id="questions-form" action="https://formspree.io/f/xeepplbo" method="POST">
+      <input type="hidden" name="_subject" value="Parent Question — KSA Summer Program">
+
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="name" placeholder="Full name" required>
+
+      <label for="child-grade">Child's grade (September 2026)</label>
+      <select id="child-grade" name="child_grade" required>
+        <option value="" disabled selected>Select grade</option>
+        <option>Grade 7</option>
+        <option>Grade 8</option>
+        <option>Grade 9</option>
+        <option>Grade 10</option>
+        <option>Grade 11</option>
+        <option>Not applicable</option>
+      </select>
+
+      <label for="whatsapp">WhatsApp number</label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 (xxx) xxx-xxxx" pattern="[+]?[0-9\s\-().]{7,20}" title="Please enter a valid phone number" required>
+
+      <label for="question">Your question or area of interest</label>
+      <textarea id="question" name="question" placeholder="What would you like to know about the program?" required></textarea>
+
+      <label>Best way to reach you</label>
+      <select name="contact_pref" required>
+        <option value="" disabled selected>Select preference</option>
+        <option value="whatsapp">WhatsApp message</option>
+        <option value="call">Phone call</option>
+        <option value="email">Email</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" required>
+
+      <button type="submit" class="btn">Send Message →</button>
+    </form>
+    <div class="success" id="success-msg">
+      <div class="big">🙏</div>
+      <h2>Waheguru Ji Ka Khalsa!</h2>
+      <p>Thank you for reaching out. Amarjot will contact you on WhatsApp within 24 hours.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://sikhcollegeprep.us">sikhcollegeprep.us</a> &nbsp;·&nbsp;
+    <a href="https://khalsascholars.org/tutor">Volunteer as a tutor</a><br>
+    Khalsa Scholars Academy · San Jose Gurudwara Sahib<br>
+    Seva · Charhdi Kala · Sarbat da Bhala
+  </div>
+</div>
+
+<script>
+document.getElementById('questions-form').addEventListener('submit', function(e) {
+  var phone = document.getElementById('whatsapp').value.replace(/[\s\-().+]/g,'');
+  if(phone.length < 7 || phone.length > 15 || !/^[0-9]+$/.test(phone)) {
+    e.preventDefault();
+    alert('Please enter a valid WhatsApp number.');
+    return;
+  }
+  var email = document.getElementById('email').value;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    e.preventDefault();
+    alert('Please enter a valid email address.');
+    return;
+  }
+});
+
+if(window.location.search.includes('thanks=1')){
+  document.getElementById('questions-form').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalsa Scholars Academy — Math Tutor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #1B2D5B; --gold: #C8921A; --gold-light: #E8A820; --cream: #FFF8EE; --cream-dark: #F5EDD8; --steel: #2E5D9E; --dark: #1A1A1A; --grey: #555; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; }
+  .nav { background: var(--navy); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .nav-brand { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+  .nav-links { display: flex; gap: 8px; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; padding: 6px 14px; border-radius: 20px; transition: all 0.2s; font-weight: 500; }
+  .nav-links a:hover, .nav-links a.active { background: var(--gold); color: white; }
+  .hero { background: var(--navy); padding: 80px 40px 60px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(200,146,26,0.12) 0%, transparent 60%); }
+  .khanda { font-size: 4rem; color: var(--gold); display: block; margin-bottom: 20px; animation: float 4s ease-in-out infinite; position: relative; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero-tag { display: inline-block; background: rgba(200,146,26,0.2); border: 1px solid var(--gold); color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: white; line-height: 1.2; max-width: 760px; margin: 0 auto 16px; position: relative; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 560px; margin: 0 auto; position: relative; line-height: 1.6; }
+  .facts-strip { background: var(--gold); padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+  .fact-item { padding: 14px 28px; text-align: center; border-right: 1px solid rgba(255,255,255,0.3); }
+  .fact-item:last-child { border-right: none; }
+  .fact-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); font-weight: 600; }
+  .fact-value { font-size: 0.9rem; font-weight: 700; color: white; margin-top: 2px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+  .gurudwara-quote { background: white; border-left: 5px solid var(--gold); padding: 24px 32px; border-radius: 0 12px 12px 0; margin-bottom: 56px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+  .gurudwara-quote p { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); line-height: 1.7; font-style: italic; }
+  .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 16px; line-height: 1.3; }
+  .section { margin-bottom: 56px; }
+  p.body-text { font-size: 0.95rem; line-height: 1.8; color: var(--dark); margin-bottom: 16px; }
+  p.body-text em { font-style: italic; color: var(--grey); }
+
+  .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+  .support-card { background: white; border-radius: 12px; padding: 24px 20px; border-top: 3px solid var(--gold); box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .support-card:hover { transform: translateY(-4px); }
+  .support-icon { font-size: 1.6rem; margin-bottom: 10px; display: block; }
+  .support-title { font-weight: 700; color: var(--navy); font-size: 0.9rem; margin-bottom: 6px; }
+  .support-desc { font-size: 0.83rem; color: var(--grey); line-height: 1.5; }
+
+  .commitment-table { width: 100%; border-collapse: collapse; margin: 24px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .commitment-table tr:last-child td { background: var(--navy) !important; color: white; }
+  .commitment-table tr:last-child td:first-child { color: var(--gold); }
+  .commitment-table td { padding: 16px 20px; font-size: 0.9rem; }
+  .commitment-table td:first-child { background: #EEF3FB; color: var(--navy); font-weight: 700; width: 180px; }
+  .commitment-table tr:nth-child(even) td:last-child { background: #F8FAFF; }
+  .commitment-table tr:nth-child(odd) td:last-child { background: white; }
+
+  .looking-for { list-style: none; margin: 20px 0; }
+  .looking-for li { padding: 12px 0 12px 28px; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.95rem; line-height: 1.6; position: relative; }
+  .looking-for li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 15px; }
+  .looking-for li:last-child { border-bottom: none; }
+
+  .callout { border-radius: 12px; padding: 28px 32px; margin: 24px 0; }
+  .callout-gold { background: var(--cream-dark); border-left: 5px solid var(--gold); }
+  .callout-navy { background: var(--navy); color: white; }
+  .callout h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; color: var(--navy); }
+  .callout-navy h3 { color: var(--gold); }
+  .callout p { font-size: 0.95rem; line-height: 1.7; }
+  .callout-navy p { color: rgba(255,255,255,0.85); }
+  .callout em { font-style: italic; color: rgba(255,255,255,0.65); }
+
+  .cta-section { background: var(--navy); border-radius: 16px; padding: 48px 40px; text-align: center; position: relative; overflow: hidden; margin-top: 56px; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(200,146,26,0.15), transparent 60%); }
+  .cta-section h2 { color: white; font-size: 1.8rem; margin-bottom: 8px; position: relative; }
+  .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; position: relative; }
+  .cta-btn { display: inline-block; background: var(--gold); color: white; font-weight: 700; font-size: 1rem; padding: 14px 36px; border-radius: 8px; text-decoration: none; transition: all 0.2s; position: relative; }
+  .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,26,0.4); }
+
+  footer { background: var(--navy); padding: 32px 40px; text-align: center; border-top: 1px solid rgba(200,146,26,0.3); }
+  .footer-fateh { color: rgba(255,255,255,0.5); font-size: 0.82rem; font-style: italic; margin-bottom: 8px; }
+  .footer-seva { color: var(--gold); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.6s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; } .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; } .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+  @media (max-width: 600px) {
+    .nav { padding: 12px 16px; } .hero { padding: 50px 20px 40px; } .container { padding: 40px 16px; }
+    .commitment-table td:first-child { width: 120px; }
+    .facts-strip { justify-content: flex-start; overflow-x: auto; } .fact-item { min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">☬ Khalsa Scholars Academy</span>
+  <div class="nav-links">
+    <a href="index.html">Parents</a>
+    <a href="students.html">Students</a>
+    <a href="math-tutor.html" class="active">Math Tutor</a>
+    <a href="english-tutor.html">English Tutor</a>
+    <a href="scholarships.html">Scholarships</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="khanda">☬</span>
+  <div class="hero-tag">Volunteer — Math Tutor</div>
+  <h1>Be the person who made a <em>difference</em></h1>
+  <p class="hero-sub">Guide selected Grade 7–11 students in Mathematics — as an act of seva. You are fully supported. You are never alone.</p>
+</div>
+
+<div class="facts-strip">
+  <div class="fact-item"><div class="fact-label">Subject</div><div class="fact-value">Mathematics</div></div>
+  <div class="fact-item"><div class="fact-label">Grades</div><div class="fact-value">7 – 11</div></div>
+  <div class="fact-item"><div class="fact-label">Commitment</div><div class="fact-value">5 hrs / week</div></div>
+  <div class="fact-item"><div class="fact-label">Location</div><div class="fact-value">Gurudwara + Zoom</div></div>
+  <div class="fact-item"><div class="fact-label">Program</div><div class="fact-value">Jun 14 – Aug 30, 2026</div></div>
+  <div class="fact-item"><div class="fact-label">Stipend</div><div class="fact-value">Seva + Token of Gratitude</div></div>
+</div>
+
+<div class="container">
+
+  <div class="gurudwara-quote fade-in">
+    <p>"The Gurudwara has always been a place of learning and seva. This is your chance to carry that forward."</p>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-label">The Role</div>
+    <h2>You do not need to be a master teacher</h2>
+    <p class="body-text">You are given login access to the same learning software your students use — so you can see exactly what each student is working on, where they are excelling, and where they are stuck. For every exercise assigned, you receive the fully worked solution.</p>
+    <p class="body-text">Your job is to guide, not lecture. You work through specific problems the student is stuck on, using the material already in front of you. <em>A senior faculty member is always available for consultation. You are never on your own.</em></p>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-label">What You Are Given</div>
+    <h2>Everything you need, every week</h2>
+    <div class="support-grid">
+      <div class="support-card">
+        <span class="support-icon">💻</span>
+        <div class="support-title">Software Login</div>
+        <div class="support-desc">Full access to each student's learning dashboard — see their progress, streaks, and exact problem areas</div>
+      </div>
+      <div class="support-card">
+        <span class="support-icon">✅</span>
+        <div class="support-title">Worked Solutions</div>
+        <div class="support-desc">Complete step-by-step solutions for every exercise assigned to your students — prepared in advance</div>
+      </div>
+      <div class="support-card">
+        <span class="support-icon">👨‍🏫</span>
+        <div class="support-title">Senior Faculty</div>
+        <div class="support-desc">A senior faculty member with decades of academic and industry experience is available for any question</div>
+      </div>
+      <div class="support-card">
+        <span class="support-icon">📋</span>
+        <div class="support-title">Session Structure</div>
+        <div class="support-desc">Each session is structured — you are not improvising. A clear plan is provided each week</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-label">The Commitment</div>
+    <h2>5 hours a week — structured and supported</h2>
+    <table class="commitment-table">
+      <tr><td>1.5 hrs / week</td><td>Review student progress data and worked solutions via your software login</td></tr>
+      <tr><td>1.5 hrs / week</td><td>Mid-week Zoom session — guide students through concepts they are stuck on</td></tr>
+      <tr><td>2 hrs / week</td><td>Sunday in-person session at the Gurudwara</td></tr>
+      <tr><td>5 hrs total</td><td>Structured, supported, and purposeful</td></tr>
+    </table>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-label">What We Are Looking For</div>
+    <h2>The right person for this role</h2>
+    <ul class="looking-for">
+      <li>Comfortable with Mathematics at the middle and high school level — Algebra, Geometry, Pre-Calculus</li>
+      <li>Patient and able to explain concepts simply and clearly</li>
+      <li>Reliable — Sunday mornings and a mid-week Zoom commitment throughout the program</li>
+      <li>A genuine desire to give back to the next generation of our community</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-navy fade-in">
+    <h3>What you will receive</h3>
+    <p>A heartfelt token of gratitude, a formal acknowledgement letter signed by Prof. Baltej Singh Mann, and recognition at every quarterly Parents Forum and in all program materials.</p>
+    <br>
+    <p><em>Your seva will be honoured — in gratitude, in recognition, and in the difference you make.</em></p>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to give back?</h2>
+    <p>Fill in the interest form and we will be in touch before June 14th.</p>
+    <a href="https://khalsascholars.org/tutor" class="cta-btn" target="_blank">Express Your Interest</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-fateh">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</div>
+  <div class="footer-seva">Seva · Charhdi Kala · Sarbat da Bhala</div>
+  <div style="margin-top: 12px; color: rgba(255,255,255,0.4); font-size: 0.78rem;">Program Leader: Prof. Baltej Singh Mann &nbsp;|&nbsp; San Jose Gurudwara Sahib</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Khalsa Scholars Academy — Current Families</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2D5B;
+    --gold: #C8921A;
+    --gold-light: #E8A820;
+    --cream: #FFF8EE;
+    --cream-dark: #F5EDD8;
+    --steel: #2E5D9E;
+    --dark: #1A1A1A;
+    --grey: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* NAV BAR */
+  .nav {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nav-brand { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+  .nav-links { display: flex; gap: 8px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--gold);
+    color: white;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(200,146,26,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(46,93,158,0.3) 0%, transparent 50%);
+  }
+  .khanda {
+    font-size: 4rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(200,146,26,0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: white;
+    line-height: 1.2;
+    max-width: 760px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+  .hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  /* QUICK FACTS STRIP */
+  .facts-strip {
+    background: var(--gold);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .fact-item {
+    padding: 14px 28px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.3);
+  }
+  .fact-item:last-child { border-right: none; }
+  .fact-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); font-weight: 600; }
+  .fact-value { font-size: 0.9rem; font-weight: 700; color: white; margin-top: 2px; }
+
+  /* MAIN CONTENT */
+  .container { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+
+  /* INTRO QUOTE */
+  .gurudwara-quote {
+    background: white;
+    border-left: 5px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 56px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .gurudwara-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .section { margin-bottom: 56px; }
+  .section > p { color: var(--dark); font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin: 24px 0 10px;
+  }
+
+  /* SCHEDULE GRID (label | detail rows) */
+  .how-grid { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+  .how-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+  .how-item:hover { transform: translateX(4px); }
+  .how-label {
+    background: var(--navy);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .how-detail {
+    padding: 18px 20px;
+    font-size: 0.9rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  /* TIMELINE (compact two-column time rows) */
+  .timeline { list-style: none; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .timeline .t-time { padding: 12px 18px; font-weight: 700; color: var(--navy); font-size: 0.9rem; background: var(--cream-dark); }
+  .timeline .t-act { padding: 12px 18px; font-size: 0.9rem; color: var(--dark); display: flex; align-items: center; }
+
+  /* BULLET LIST */
+  .receive-list { list-style: none; margin: 20px 0; }
+  .receive-list li {
+    padding: 12px 0 12px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    position: relative;
+    color: var(--dark);
+  }
+  .receive-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 15px;
+  }
+  .receive-list li:last-child { border-bottom: none; }
+  .receive-list strong { color: var(--navy); }
+
+  /* TEST LIST (date · label · location) */
+  .test-list { list-style: none; margin: 14px 0; }
+  .test-list li {
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .test-date { font-weight: 700; color: var(--navy); }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .badge-room { background: var(--cream-dark); color: var(--navy); }
+  .badge-home { background: var(--gold); color: white; }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+  .callout-gold {
+    background: var(--cream-dark);
+    border-left: 5px solid var(--gold);
+  }
+  .callout-navy {
+    background: var(--navy);
+    color: white;
+  }
+  .callout h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .callout-navy h3 { color: var(--gold); }
+  .callout p { font-size: 0.95rem; line-height: 1.7; }
+  .callout p + p { margin-top: 10px; }
+  .callout-navy p { color: rgba(255,255,255,0.85); }
+
+  /* CONTACT LIST */
+  .contact-list { list-style: none; margin: 20px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+  .contact-list li {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--gold);
+  }
+  .contact-grade { font-weight: 700; color: var(--navy); font-size: 0.85rem; display: block; margin-bottom: 3px; }
+  .contact-list a { color: var(--steel); text-decoration: none; font-size: 0.88rem; word-break: break-all; }
+  .contact-list a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 32px 40px;
+    text-align: center;
+    margin-top: 0;
+    border-top: 1px solid rgba(200,146,26,0.3);
+  }
+  .footer-fateh { color: rgba(255,255,255,0.5); font-size: 0.82rem; font-style: italic; margin-bottom: 8px; }
+  .footer-seva { color: var(--gold); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 12px 16px; }
+    .nav-links a { font-size: 0.72rem; padding: 5px 10px; }
+    .hero { padding: 50px 20px 40px; }
+    .container { padding: 40px 16px; }
+    .how-item { grid-template-columns: 1fr; }
+    .how-label { justify-content: flex-start; padding: 12px 16px; }
+    .timeline li { grid-template-columns: 110px 1fr; }
+    .facts-strip { justify-content: flex-start; overflow-x: auto; }
+    .fact-item { min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">☬ Khalsa Scholars Academy</span>
+  <div class="nav-links">
+    <a href="index.html">Parents</a>
+    <a href="students.html">Students</a>
+    <a href="math-tutor.html">Math Tutor</a>
+    <a href="english-tutor.html">English Tutor</a>
+    <a href="scholarships.html">Scholarships</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="khanda">☬</span>
+  <div class="hero-tag">Current Families — Grades 7 to 11</div>
+  <h1>Your reference for <em>the summer</em></h1>
+  <p class="hero-sub">The schedule, what's expected, and how the program works. For the week's reminders and your child's specific assignments, see "Where things live" below.</p>
+</div>
+
+<div class="facts-strip">
+  <div class="fact-item"><div class="fact-label">Grades</div><div class="fact-value">7 – 11</div></div>
+  <div class="fact-item"><div class="fact-label">Location</div><div class="fact-value">San Jose Gurudwara Sahib</div></div>
+  <div class="fact-item"><div class="fact-label">Sundays</div><div class="fact-value">From 10:45 AM</div></div>
+  <div class="fact-item"><div class="fact-label">Program</div><div class="fact-value">Jun 14 – Aug 30, 2026</div></div>
+</div>
+
+<div class="container">
+
+  <!-- SUNDAY SESSIONS -->
+  <div class="section fade-in">
+    <div class="section-label">In Person</div>
+    <h2>The Sunday sessions</h2>
+    <p>We meet in person at the Gurudwara. A normal Sunday runs:</p>
+    <ul class="timeline">
+      <li><div class="t-time">10:45 AM</div><div class="t-act">Assembly</div></li>
+      <li><div class="t-time">11:00 AM</div><div class="t-act">Math</div></li>
+      <li><div class="t-time">12:10–12:20</div><div class="t-act">Break</div></li>
+      <li><div class="t-time">12:20–1:00 PM</div><div class="t-act">English</div></li>
+    </ul>
+    <p><strong>Our ten weekends:</strong> June 14 (first session) · June 21 · June 28 · July 12 · July 19 · August 2 · August 9 · <strong>Saturday, August 15</strong> <em>(the whole in-person session moves to Saturday this week — there is no session on Sunday, August 16)</em> · August 23 · August 30 (closing).</p>
+    <p><strong>No session:</strong> July 5 and July 26. The Gurudwara sessions pause on these two Sundays.</p>
+    <div class="callout callout-gold">
+      <p>On test Sundays, Grades 10 and 11 run later — until 1:30 — so the session can be completed under realistic timing. Please plan pickup accordingly on those days. Your child's grade test dates are below.</p>
+    </div>
+  </div>
+
+  <!-- WEEKLY ONLINE SESSIONS -->
+  <div class="section fade-in">
+    <div class="section-label">Midweek · Online</div>
+    <h2>Weekly online sessions</h2>
+    <p>In addition to our Sunday in-person sessions, each grade meets once midweek online. These run from the week of June 14 through August 30, pausing the weeks of July 5 and July 26.</p>
+    <div class="how-grid">
+      <div class="how-item"><div class="how-label">Grade 7</div><div class="how-detail">Wednesday, 6:00–7:00 PM</div></div>
+      <div class="how-item"><div class="how-label">Grade 8</div><div class="how-detail">Thursday, 5:00–6:00 PM</div></div>
+      <div class="how-item"><div class="how-label">Grade 9</div><div class="how-detail">Thursday, 5:00–6:00 PM</div></div>
+      <div class="how-item"><div class="how-label">Grade 10</div><div class="how-detail">Thursday, 6:00–7:00 PM</div></div>
+      <div class="how-item"><div class="how-label">Grade 11</div><div class="how-detail">Wednesday, 5:00–6:00 PM</div></div>
+    </div>
+    <p>We will share the Google Meet link via email before the first session. These are working sessions — a chance mid-week to go over wherever your child is getting stuck, rather than a lecture — so it helps if they come with a question or two ready.</p>
+    <div class="callout callout-gold">
+      <p>These times are a starting point, not a fixed rule. If a grade's tutor and families find a time that works better for everyone — or want to add a second session during the week — they are completely free to arrange that together. And if your grade's time doesn't suit your family, simply speak with your child's tutor. We would much rather adjust than have anyone miss out.</p>
+    </div>
+  </div>
+
+  <!-- BLUEBOOK TEST SCHEDULE -->
+  <div class="section fade-in">
+    <div class="section-label">Testing</div>
+    <h2>Bluebook test schedule</h2>
+    <p>Every full-length test produces a personalized error log that drives the next weeks of practice. Tests are not about a single score — they show us exactly where to focus.</p>
+    <p>Each full-length test runs about 2 hours 30 minutes, including a 10-minute break in the middle. Please plan around that on test days, whether in person or at home.</p>
+
+    <h3>Grade 7 — Bluebook exposure only</h3>
+    <p>Students get familiar with the official testing app and environment so it is never unfamiliar later. No full-length tests, no scored sittings, no test dates to track this summer.</p>
+
+    <h3>Grades 8 &amp; 9 — Two full-length tests</h3>
+    <ul class="test-list">
+      <li><span class="test-date">Sunday, June 28</span> — Baseline <span class="badge badge-room">Room 176</span></li>
+      <li><span class="test-date">Saturday, August 15</span> — Second test (growth check) <span class="badge badge-room">Room 176</span></li>
+    </ul>
+
+    <h3>Grades 10 &amp; 11 — Regular full-length practice</h3>
+    <p>In-person tests are in Room 176; those Sundays run 11:00 AM–1:30 PM.</p>
+    <ul class="test-list">
+      <li><span class="test-date">Sunday, June 21</span> — SAT practice test (baseline) <span class="badge badge-room">Room 176</span></li>
+      <li><span class="test-date">Saturday, July 11</span> — SAT practice test <span class="badge badge-home">At home</span></li>
+      <li><span class="test-date">Sunday, August 9</span> — PSAT/NMSQT practice test <span class="badge badge-room">Room 176</span></li>
+      <li><span class="test-date">Friday, August 14</span> — SAT practice test <span class="badge badge-home">At home</span></li>
+      <li><span class="test-date">Sunday, August 23</span> — PSAT/NMSQT dress rehearsal <span class="badge badge-room">Room 176</span></li>
+    </ul>
+    <div class="callout callout-gold">
+      <p>The at-home tests — Saturday, July 11 and Friday, August 14 — are full timed tests. Please protect a quiet, uninterrupted block at home and treat them as the real thing — the practice only works if the conditions are real.</p>
+    </div>
+  </div>
+
+  <!-- DAILY PRACTICE -->
+  <div class="section fade-in">
+    <div class="section-label">At Home</div>
+    <h2>Daily practice — what happens at home</h2>
+    <p>Between sessions, students practice every day: <strong>45 minutes of Math and 35 minutes of English.</strong> This is the engine of the program. The Sunday session builds on the week's practice; it does not replace it.</p>
+    <h3>How families help most</h3>
+    <ul class="receive-list">
+      <li>Protect the daily practice time. A consistent, quiet block matters more than a long one.</li>
+      <li>Keep Sunday attendance steady — the sessions build on each other.</li>
+      <li>Stay in contact with your child's tutor. Partner with us on accountability rather than outsourcing it.</li>
+    </ul>
+    <p>Your child's daily practice happens in Khan Academy; Google Classroom is just for the Sunday quizzes (see below).</p>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section fade-in">
+    <div class="section-label">The Toolset</div>
+    <h2>How the tools fit together</h2>
+    <p>Your child uses a small, deliberate set of tools — each with a clear job.</p>
+    <ul class="receive-list">
+      <li><strong>Khan Academy</strong> — daily skill practice and lessons. This is where most of the at-home work happens.</li>
+      <li><strong>Google Classroom</strong> — where the Sunday quizzes are posted and scored.</li>
+      <li><strong>Bluebook</strong> — College Board's official testing app, used for the practice tests above.</li>
+      <li><strong>Desmos</strong> — the graphing calculator built into the digital test. Students learn to use it the way they will on test day.</li>
+    </ul>
+    <p>We keep the toolset small on purpose. Fewer tools, used well, beats many tools used shallowly.</p>
+  </div>
+
+  <!-- WHERE THINGS LIVE -->
+  <div class="section fade-in">
+    <div class="section-label">Orientation</div>
+    <h2>Where things live</h2>
+    <p>So you always know where to look:</p>
+    <ul class="receive-list">
+      <li><strong>This page</strong> — the schedule, expectations, and how the program works. Stable for the whole summer.</li>
+      <li><strong>Google Classroom</strong> — the Sunday quizzes.</li>
+      <li><strong>WhatsApp</strong> — the week's reminders and anything time-sensitive. (Your grade's midweek online session link is sent by email — see "Weekly online sessions" above.)</li>
+      <li><strong>Calendar invite</strong> — your grade's Sunday session dates.</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section fade-in">
+    <div class="section-label">Contact</div>
+    <h2>How to reach us</h2>
+    <p>Questions about your child's progress or assignments go to your grade's program address. Please use email rather than reaching tutors individually — it makes sure the right person sees it and nothing gets missed.</p>
+    <ul class="contact-list">
+      <li><span class="contact-grade">Grade 7</span><a href="mailto:7th_grade_psat_tutor@khalsascholars.org">7th_grade_psat_tutor@khalsascholars.org</a></li>
+      <li><span class="contact-grade">Grade 8</span><a href="mailto:8th_grade_psat_tutor@khalsascholars.org">8th_grade_psat_tutor@khalsascholars.org</a></li>
+      <li><span class="contact-grade">Grade 9</span><a href="mailto:9th_grade_psat_tutor@khalsascholars.org">9th_grade_psat_tutor@khalsascholars.org</a></li>
+      <li><span class="contact-grade">Grade 10</span><a href="mailto:10th_grade_psat_tutor@khalsascholars.org">10th_grade_psat_tutor@khalsascholars.org</a></li>
+      <li><span class="contact-grade">Grade 11</span><a href="mailto:11th_grade_psat_tutor@khalsascholars.org">11th_grade_psat_tutor@khalsascholars.org</a></li>
+    </ul>
+    <div class="callout callout-navy">
+      <h3>Anything else?</h3>
+      <p>For anything else — scheduling, the program in general, or if you're not sure who to ask — write to <a href="mailto:cpp@khalsascholars.org" style="color: var(--gold-light); text-decoration: none;">cpp@khalsascholars.org</a>.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-fateh">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</div>
+  <div class="footer-seva">Seva · Charhdi Kala · Sarbat da Bhala</div>
+  <div style="margin-top: 12px; color: rgba(255,255,255,0.4); font-size: 0.78rem;">Program Leader: Prof. Baltej Singh Mann &nbsp;|&nbsp; San Jose Gurudwara Sahib</div>
+</footer>
+
+</body>
+</html>

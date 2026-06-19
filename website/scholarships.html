@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalsa Scholars Academy — Scholarship Facts</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2D5B;
+    --gold: #C8921A;
+    --gold-light: #E8A820;
+    --cream: #FFF8EE;
+    --cream-dark: #F5EDD8;
+    --steel: #2E5D9E;
+    --dark: #1A1A1A;
+    --grey: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; }
+
+  .nav { background: var(--navy); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .nav-brand { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; padding: 6px 14px; border-radius: 20px; transition: all 0.2s; font-weight: 500; }
+  .nav-links a:hover, .nav-links a.active { background: var(--gold); color: white; }
+
+  .hero {
+    background: var(--navy);
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 40% 50%, rgba(200,146,26,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 20%, rgba(46,93,158,0.3) 0%, transparent 50%);
+  }
+  .khanda { font-size: 4rem; color: var(--gold); display: block; margin-bottom: 20px; animation: float 4s ease-in-out infinite; position: relative; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .hero-tag { display: inline-block; background: rgba(200,146,26,0.2); border: 1px solid var(--gold); color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: white; line-height: 1.2; max-width: 760px; margin: 0 auto 16px; position: relative; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 620px; margin: 0 auto; position: relative; line-height: 1.6; }
+
+  .disclaimer-strip {
+    background: var(--gold);
+    padding: 12px 40px;
+    text-align: center;
+  }
+  .disclaimer-strip p { color: white; font-size: 0.85rem; font-weight: 500; }
+  .disclaimer-strip strong { color: white; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+
+  .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--navy); margin-bottom: 20px; line-height: 1.3; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 12px; }
+  .section { margin-bottom: 64px; }
+  p.body-text { font-size: 0.95rem; line-height: 1.8; color: var(--dark); margin-bottom: 14px; }
+
+  /* BIG NUMBER CARDS */
+  .scholarship-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 28px 0; }
+  .scholarship-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .scholarship-card:hover { transform: translateY(-4px); }
+  .scholarship-card::before { content: ''; position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(200,146,26,0.2), transparent); border-radius: 50%; }
+  .scholarship-number { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); font-weight: 900; display: block; margin-bottom: 8px; }
+  .scholarship-desc { color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.6; }
+
+  /* UNIVERSITY CARDS */
+  .uni-grid { display: flex; flex-direction: column; gap: 20px; margin: 28px 0; }
+  .uni-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    transition: transform 0.2s;
+  }
+  .uni-card:hover { transform: translateY(-2px); }
+  .uni-header {
+    background: var(--navy);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .uni-name { color: white; font-weight: 700; font-size: 1rem; font-family: 'Playfair Display', serif; }
+  .uni-amount { background: var(--gold); color: white; font-weight: 700; font-size: 0.85rem; padding: 4px 14px; border-radius: 20px; }
+  .uni-body { padding: 20px 24px; }
+  .uni-body ul { list-style: none; margin: 10px 0 14px; }
+  .uni-body ul li { padding: 6px 0 6px 22px; font-size: 0.9rem; color: var(--dark); position: relative; border-bottom: 1px solid rgba(0,0,0,0.05); line-height: 1.5; }
+  .uni-body ul li:last-child { border-bottom: none; }
+  .uni-body ul li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.65rem; top: 8px; }
+  .uni-link { display: inline-flex; align-items: center; gap: 6px; color: var(--steel); font-size: 0.82rem; text-decoration: none; font-weight: 600; margin-top: 4px; transition: color 0.2s; }
+  .uni-link:hover { color: var(--gold); }
+  .uni-link::after { content: '→'; }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 28px 0; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--navy)); }
+  .timeline-item { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
+  .timeline-dot { width: 58px; height: 58px; min-width: 58px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; color: var(--gold); font-size: 0.9rem; position: relative; z-index: 1; border: 3px solid var(--gold); text-align: center; line-height: 1.2; }
+  .timeline-content { background: white; border-radius: 10px; padding: 18px 20px; flex: 1; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .timeline-title { font-weight: 700; color: var(--navy); font-size: 0.95rem; margin-bottom: 6px; }
+  .timeline-desc { font-size: 0.88rem; color: var(--grey); line-height: 1.6; }
+
+  /* CALLOUT */
+  .callout { border-radius: 12px; padding: 28px 32px; margin: 24px 0; }
+  .callout-gold { background: var(--cream-dark); border-left: 5px solid var(--gold); }
+  .callout-navy { background: var(--navy); }
+  .callout h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 10px; color: var(--navy); }
+  .callout-navy h3 { color: var(--gold); }
+  .callout p { font-size: 0.93rem; line-height: 1.7; color: var(--dark); }
+  .callout-navy p { color: rgba(255,255,255,0.85); }
+  .callout em { font-style: italic; }
+
+  /* LEARN MORE */
+  .learn-more-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 20px 0; }
+  .learn-more-card { background: white; border-radius: 10px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-top: 3px solid var(--gold); }
+  .learn-more-card .lm-title { font-weight: 700; color: var(--navy); font-size: 0.88rem; margin-bottom: 8px; }
+  .learn-more-card a { color: var(--steel); font-size: 0.82rem; word-break: break-all; text-decoration: none; line-height: 1.5; display: block; }
+  .learn-more-card a:hover { color: var(--gold); }
+
+  /* CTA */
+  .cta-section { background: var(--navy); border-radius: 16px; padding: 48px 40px; text-align: center; position: relative; overflow: hidden; margin-top: 56px; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(200,146,26,0.15), transparent 60%); }
+  .cta-section h2 { color: white; font-size: 1.8rem; margin-bottom: 8px; position: relative; }
+  .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; position: relative; }
+  .cta-btn { display: inline-block; background: var(--gold); color: white; font-weight: 700; font-size: 1rem; padding: 14px 36px; border-radius: 8px; text-decoration: none; transition: all 0.2s; position: relative; }
+  .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,26,0.4); }
+  .cta-meta { margin-top: 20px; position: relative; }
+  .cta-meta span { display: inline-block; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); font-size: 0.82rem; padding: 5px 14px; border-radius: 20px; margin: 4px; }
+  .cta-meta span strong { color: white; }
+
+  footer { background: var(--navy); padding: 32px 40px; text-align: center; border-top: 1px solid rgba(200,146,26,0.3); }
+  .footer-fateh { color: rgba(255,255,255,0.5); font-size: 0.82rem; font-style: italic; margin-bottom: 8px; }
+  .footer-seva { color: var(--gold); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.6s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+  @media (max-width: 600px) {
+    .nav { padding: 12px 16px; }
+    .hero { padding: 50px 20px 40px; }
+    .container { padding: 40px 16px; }
+    .timeline::before { left: 22px; }
+    .timeline-dot { width: 46px; height: 46px; min-width: 46px; font-size: 0.78rem; }
+    .uni-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">☬ Khalsa Scholars Academy</span>
+  <div class="nav-links">
+    <a href="index.html">Parents</a>
+    <a href="students.html">Students</a>
+    <a href="math-tutor.html">Math Tutor</a>
+    <a href="english-tutor.html">English Tutor</a>
+    <a href="scholarships.html" class="active">Scholarships</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="khanda">☬</span>
+  <div class="hero-tag">The Evidence — Scholarship Facts</div>
+  <h1>What is <em>actually possible</em> with the right preparation?</h1>
+  <p class="hero-sub">Real scholarship data from real universities — so families can make informed decisions about their child's academic future.</p>
+</div>
+
+<div class="disclaimer-strip">
+  <p>The examples below show <strong>upper-end possibilities</strong> at especially generous universities — not guaranteed outcomes for every student. Sources and links are provided for every claim.</p>
+</div>
+
+<div class="container">
+
+  <!-- BIG THREE NUMBERS -->
+  <div class="section fade-in">
+    <div class="section-label">The Opportunity at a Glance</div>
+    <h2>Three numbers every family should know</h2>
+    <div class="scholarship-grid">
+      <div class="scholarship-card">
+        <span class="scholarship-number">$70,000+</span>
+        <div class="scholarship-desc">Total value of National Merit Finalist packages at the most generous US universities — covering tuition, housing, and stipends over four years</div>
+      </div>
+      <div class="scholarship-card">
+        <span class="scholarship-number">$28,000</span>
+        <div class="scholarship-desc">Per year in automatic merit aid available to high-scoring students at select public universities — especially for out-of-state applicants</div>
+      </div>
+      <div class="scholarship-card">
+        <span class="scholarship-number">Grade 7</span>
+        <div class="scholarship-desc">Is when this program starts — because the qualifying PSAT/NMSQT happens in Grade 11, and students need 3–4 years to build the foundation to score competitively</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NATIONAL MERIT SECTION -->
+  <div class="section fade-in">
+    <div class="section-label">National Merit Scholarship Packages</div>
+    <h2>Up to $70,000+ over four years</h2>
+    <p class="body-text">Some universities offer extraordinarily generous packages to National Merit Finalists — covering tuition, housing, and additional stipends. Here are three documented examples with sources.</p>
+
+    <div class="uni-grid">
+
+      <div class="uni-card">
+        <div class="uni-header">
+          <span class="uni-name">University of Alabama</span>
+          <span class="uni-amount">$70,000+ total value</span>
+        </div>
+        <div class="uni-body">
+          <p style="font-size:0.88rem; color:var(--grey); margin-bottom:10px;">The National Merit Finalist package at Alabama includes:</p>
+          <ul>
+            <li>Full tuition for up to 5 years (10 semesters)</li>
+            <li>4 years of on-campus housing</li>
+            <li>$4,000 per year supplemental scholarship for 4 years</li>
+            <li>$2,000 one-time research or international study allowance</li>
+          </ul>
+          <p style="font-size:0.85rem; color:var(--grey);">When tuition and housing are combined over multiple years, the total value readily exceeds $70,000.</p>
+          <a href="https://afford.ua.edu/scholarships/national-merit/" target="_blank" class="uni-link">afford.ua.edu/scholarships/national-merit</a>
+        </div>
+      </div>
+
+      <div class="uni-card">
+        <div class="uni-header">
+          <span class="uni-name">University of Oklahoma</span>
+          <span class="uni-amount">$73,000–$75,000 total</span>
+        </div>
+        <div class="uni-body">
+          <p style="font-size:0.88rem; color:var(--grey); margin-bottom:10px;">The University of Oklahoma publishes an official National Merit Finalist Package PDF that explicitly lists the Resident Total value — including tuition waivers, stipends, and housing support.</p>
+          <ul>
+            <li>Published resident total: $73,000–$75,000 range over multiple years</li>
+            <li>Includes tuition waiver, housing, and annual stipend</li>
+          </ul>
+          <a href="https://ou.edu/content/dam/recruitment/honors/NMpackage_2023_Resident.pdf" target="_blank" class="uni-link">OU 2023 Resident Package (PDF)</a>
+          <a href="https://ou.edu/content/dam/recruitment/honors/National%20Merit_RES_2024.pdf" target="_blank" class="uni-link" style="margin-top:6px;">OU 2024 Resident Package (PDF)</a>
+        </div>
+      </div>
+
+      <div class="uni-card">
+        <div class="uni-header">
+          <span class="uni-name">Texas A&M University</span>
+          <span class="uni-amount">$13,000–$43,000 total</span>
+        </div>
+        <div class="uni-body">
+          <p style="font-size:0.88rem; color:var(--grey); margin-bottom:10px;">Texas A&M packages National Merit awards ranging from $13,000 to $43,000 over 4 years of undergraduate study, depending on the specific award tier.</p>
+          <ul>
+            <li>Multiple scholarship tiers available to Finalists</li>
+            <li>Upper tier reaches $43,000 over four years</li>
+          </ul>
+          <a href="https://www.scholarships.com/scholarships/texas-aandm-university-national-merit-scholarships" target="_blank" class="uni-link">scholarships.com — Texas A&M National Merit</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AUTOMATIC MERIT AID -->
+  <div class="section fade-in">
+    <div class="section-label">Automatic Merit Scholarships — No Application Needed</div>
+    <h2>Up to $28,000 per year for strong SAT scores</h2>
+    <p class="body-text">Some public universities publish automatic, stats-based merit scholarships — awarded purely on GPA and test score thresholds, with no separate scholarship application required.</p>
+
+    <div class="uni-card">
+      <div class="uni-header">
+        <span class="uni-name">University of Alabama — Automatic Merit Aid</span>
+        <span class="uni-amount">Up to $28,000 / year</span>
+      </div>
+      <div class="uni-body">
+        <p style="font-size:0.88rem; color:var(--grey); margin-bottom:10px;">Alabama's automatic out-of-state merit scholarships are tiered by GPA and SAT/ACT score. The highest tier reaches $28,000 per year for qualifying students.</p>
+        <ul>
+          <li>Awarded automatically — no separate scholarship application</li>
+          <li>Available to out-of-state students meeting GPA and test score thresholds</li>
+          <li>Tiers begin at lower score ranges — strong scores increase award amount</li>
+        </ul>
+        <a href="https://collegetracker.app/school/the-university-of-alabama-741de9/merit-scholarships" target="_blank" class="uni-link">collegetracker.app — Alabama Merit Scholarships</a>
+        <a href="https://www.road2college.com/university-of-alabama-merit-scholarships/" target="_blank" class="uni-link" style="margin-top:6px;">road2college.com — Alabama Merit Overview</a>
+      </div>
+    </div>
+
+    <div class="callout callout-gold" style="margin-top:20px;">
+      <h3>Important context</h3>
+      <p>The $28,000/year figure represents the upper end of published automatic awards — not a guaranteed outcome for every student. At the booth, our team can explain what score ranges are needed for each tier, and how our program builds toward those scores from Grade 7 onward.</p>
+    </div>
+  </div>
+
+  <!-- WHY GRADE 7 -->
+  <div class="section fade-in">
+    <div class="section-label">Why We Start in Grade 7</div>
+    <h2>The PSAT/NMSQT happens in Grade 11 — the clock starts now</h2>
+    <p class="body-text">The National Merit Scholarship competition is entered through the PSAT/NMSQT — and only the score earned in <strong>11th grade</strong> counts. Earlier tests (PSAT 8/9, PSAT 10) do not qualify students for National Merit. This means preparation must begin years before junior year.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">Gr 7–8</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Foundation — Math and English</div>
+          <div class="timeline-desc">Build strong algebra, reading comprehension, and grammar fundamentals. This is the base that everything else rests on. Students who start here have the most runway.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Gr 9–10</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Acceleration — PSAT 8/9 and PSAT 10</div>
+          <div class="timeline-desc">These tests do not qualify for National Merit but are excellent practice and progress benchmarks. Students deepen problem-solving skills and begin exam-format practice.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Gr 11</div>
+        <div class="timeline-content">
+          <div class="timeline-title">The Qualifying Test — PSAT/NMSQT</div>
+          <div class="timeline-desc">This is the test that counts. Only 11th grade PSAT/NMSQT scores are used to determine National Merit Semifinalist status. Students who have prepared since Grade 7 arrive here with a multi-year advantage.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">Gr 11–12</div>
+        <div class="timeline-content">
+          <div class="timeline-title">SAT / ACT and Scholarship Applications</div>
+          <div class="timeline-desc">Strong SAT scores unlock automatic merit scholarships at hundreds of universities. National Merit Finalists begin their scholarship applications and college selection.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-navy">
+      <h3>The official source</h3>
+      <p>According to College Board, students must take the PSAT/NMSQT during their third year of high school (Grade 11) to enter the National Merit Scholarship Program. Only the score earned in junior year counts toward National Merit eligibility.</p>
+      <br>
+      <p style="margin-top:8px;">
+        <a href="https://bigfuture.collegeboard.org/plan-for-college/stand-out-in-high-school/faq-psat-nmsqt" target="_blank" style="color:var(--gold); font-size:0.85rem;">College Board PSAT/NMSQT FAQ →</a>
+        &nbsp;&nbsp;
+        <a href="https://www.c2educate.com/faqs-about-the-digital-psat-nmsqt/" target="_blank" style="color:var(--gold); font-size:0.85rem;">National Merit Timing Explained →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- LEARN MORE -->
+  <div class="section fade-in">
+    <div class="section-label">Learn More</div>
+    <h2>Resources for families</h2>
+    <p class="body-text" style="margin-bottom:20px;">All sources used in this page are publicly available. Here are the key references for families who want to explore further.</p>
+    <div class="learn-more-grid">
+      <div class="learn-more-card">
+        <div class="lm-title">National Merit — Official Overview</div>
+        <a href="https://satsuite.collegeboard.org/psat-nmsqt/scholarships-recognition/national-merit-scholarship-program" target="_blank">College Board — National Merit Scholarship Program</a>
+      </div>
+      <div class="learn-more-card">
+        <div class="lm-title">National Merit FAQ</div>
+        <a href="https://www.compassprep.com/psat-national-merit-faq/" target="_blank">Compass Prep — PSAT National Merit FAQ</a>
+      </div>
+      <div class="learn-more-card">
+        <div class="lm-title">Alabama National Merit Package</div>
+        <a href="https://afford.ua.edu/scholarships/national-merit/" target="_blank">afford.ua.edu/scholarships/national-merit</a>
+      </div>
+      <div class="learn-more-card">
+        <div class="lm-title">Oklahoma National Merit Package (2024)</div>
+        <a href="https://ou.edu/content/dam/recruitment/honors/National%20Merit_RES_2024.pdf" target="_blank">ou.edu — 2024 Resident Package PDF</a>
+      </div>
+      <div class="learn-more-card">
+        <div class="lm-title">Texas A&M National Merit</div>
+        <a href="https://www.scholarships.com/scholarships/texas-aandm-university-national-merit-scholarships" target="_blank">scholarships.com — Texas A&M</a>
+      </div>
+      <div class="learn-more-card">
+        <div class="lm-title">Automatic SAT Merit Scholarships</div>
+        <a href="https://www.road2college.com/university-of-alabama-merit-scholarships/" target="_blank">road2college.com — Alabama Merit Overview</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to start the journey?</h2>
+    <p>Applications are open for the Summer 2026 cohort. Only 5 students selected per grade.</p>
+    <a href="index.html" class="cta-btn">Learn About the Program</a>
+    <div class="cta-meta">
+      <span><strong>Selection:</strong> April 27, 2026</span>
+      <span><strong>Program:</strong> Jun 14 – Aug 30</span>
+      <span><strong>Donation:</strong> $150 voluntary</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-fateh">Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh</div>
+  <div class="footer-seva">Seva · Charhdi Kala · Sarbat da Bhala</div>
+  <div style="margin-top: 12px; color: rgba(255,255,255,0.4); font-size: 0.78rem;">Program Leader: Prof. Baltej Singh Mann &nbsp;|&nbsp; San Jose Gurudwara Sahib</div>
+</footer>
+
+</body>
+</html>
