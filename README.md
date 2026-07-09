@@ -1,3 +1,8 @@
+> **⚠️ Archived — do not edit.** The live website is now maintained in
+> **[`khalsascholars/khalsascholars.github.io`](https://github.com/khalsascholars/khalsascholars.github.io)**
+> (published to **khalsascholars.org**). The `website/` folder here does **not** publish
+> anywhere — it is a historical design copy. Make all site edits in the live repo.
+
 # Khalsa Scholars Academy — College Prep Program (CCP)
 
 A community-driven academic excellence initiative designed to help students build strong foundations in Math, English, and Science while preparing progressively for PSAT, SAT, ACT, and National Merit pathways.
